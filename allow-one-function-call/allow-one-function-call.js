@@ -3,15 +3,12 @@
  * @return {Function}
  */
 var once = function(fn) {
-    let i = true;
+    let counter=0
     return function(...args){
-        if(i){
-            i = false;
-            return fn(...args)
-        } else {
-            return undefined;
+        if(counter==0){
+            counter++;
+            return fn(...args);
         }
-
     }
 };
 
