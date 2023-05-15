@@ -3,11 +3,13 @@
  * @param {Function} fn
  * @return {number[]}
  */
-var map = function(arr, fn) {
-    let newArr = [];
-    for(let i = 0; i < arr.length; i++){
-        newArr.push(fn(arr[i],i))
+var map = function(arr, fn) 
+{
+    const res = [];
+    arr.forEach(myfunc);
+    function myfunc(value , index,array)
+    {
+        res.push(fn(value,index,array));
     }
-    return newArr
-}
- 
+    return res;
+};
