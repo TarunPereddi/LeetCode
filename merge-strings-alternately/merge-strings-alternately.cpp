@@ -1,8 +1,8 @@
 class Solution {
 public:
     string mergeAlternately(string word1, string word2) {
-        int m = word1.size();
-        int n = word2.size();
+        int m = word1.length();
+        int n = word2.length();
         string result = "";
 
         for (int i = 0; i < max(m, n); i++) {
