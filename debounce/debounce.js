@@ -6,9 +6,10 @@
 var debounce = function(fn, t) {
     let timer;
     return function(...args) {
+        const context= this;
+        if(timer)
         clearTimeout(timer);
-        timer = setTimeout(() => fn(...args), t);
-
+        timer=setTimeout(()=>fn.call(context,...args),t);
     }
 };
 
