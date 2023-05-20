@@ -4,28 +4,30 @@
  * @return {Function}
  */
 
-var throttle = function(fn, t) {
-  let timerId;
-  let lastArgs;
-  let shouldCall = true;
-
-  function execute() {
-    if (shouldCall && lastArgs) {
-      fn(...lastArgs);
-      lastArgs = null;
-      shouldCall = false;
-      setTimeout(() => {
-        shouldCall = true;
-        execute();
-      }, t);
+function throttle(cb, delay = 1000) {
+  let shouldWait = false
+  let waitingArgs
+  const timeoutFunc = () => {
+    if (waitingArgs == null) {
+      shouldWait = false
+    } else {
+      cb(...waitingArgs)
+      waitingArgs = null
+      setTimeout(timeoutFunc, delay)
     }
   }
 
-  return function(...args) {
-    lastArgs = args;
-    execute();
-  };
-};
+  return (...args) => {
+    if (shouldWait) {
+      waitingArgs = args
+      return
+    }
+
+    cb(...args)
+    shouldWait = true
+    setTimeout(timeoutFunc, delay)
+  }
+}
 
 /**
  * const throttled = throttle(console.log, 100);
