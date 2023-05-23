@@ -1,5 +1,9 @@
 class Solution {
 public:
+Solution(){
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);   
+    }
     int maxArea(vector<int>& height) {
         int maxarea = 0;
         int left = 0; 
