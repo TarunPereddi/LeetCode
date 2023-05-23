@@ -18,4 +18,5 @@ public:
     return false;  // No increasing triplet found
 }
 
+
 };
