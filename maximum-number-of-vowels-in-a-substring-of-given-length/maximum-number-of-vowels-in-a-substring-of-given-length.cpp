@@ -1,5 +1,12 @@
 class Solution {
 public:
+
+Solution(){
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);   
+    }
+
+    
     int maxVowels(string s, int k) {
         int numOfVow = 0;
         for(int i =0; i < k; i++){
