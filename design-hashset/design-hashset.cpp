@@ -2,7 +2,10 @@ class MyHashSet {
 private:
     vector<bool> table;
 public:
-  MyHashSet() : table(1e6 + 1, false) {}
+  MyHashSet() : table(1e6 + 1, false) {
+		ios_base::sync_with_stdio(false);
+    cin.tie(NULL);   
+	}
 	
 	void add(int key) {
 		table[key] = true;
