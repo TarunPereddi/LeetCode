@@ -5,20 +5,14 @@ Solution(){
         cin.tie(NULL);   
     }
     int reverse(int x) {
-        long int ans = 0;
-        auto temp = abs(x);
-        while (temp>0){
-            ans = ans*10;
-            ans += temp%10;            
-            temp /= 10;
+        long ans = 0;
+        while (x){
+            ans = ans*10+x%10;          
+            x /= 10;
         }
-        if(ans>2147483647 ){
+        if(ans>INT_MAX || ans<INT_MIN){
             return 0;
-        }
-        if(x<0){
-            ans *= -1;
-        }
-        
+        }        
         return ans;
     }
 };
